@@ -1,0 +1,25 @@
+public partial class Form2 : Form
+{
+public Form1 frm1;
+ 
+public Form2()
+{
+InitializeComponent();
+}
+ 
+private void Form2_Load(object sender, EventArgs e)
+{
+frm1.sahayaz();
+}
+ 
+private void button61_Click(object sender, EventArgs e)
+{
+frm1.frm3.Show();
+this.Hide();
+}
+ 
+private void button62_Click(object sender, EventArgs e)
+{
+Application.Exit();
+}
+}

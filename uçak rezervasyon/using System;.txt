@@ -1,0 +1,876 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+ 
+namespace WindowsFormsApplication1
+{
+public partial class Form1 : Form
+{
+public Form2 frm2;
+public Form3 frm3;
+public Form1()
+{
+InitializeComponent();
+frm2 = new Form2();
+frm3 = new Form3();
+frm2.frm1 = this;
+frm3.frm1 = this;
+}
+public OleDbConnection bag = new OleDbConnection("Provider=Microsoft.Jet.Oledb.4.0;Data Source=vt1.mdb");
+public OleDbCommand kmt = new OleDbCommand();
+public OleDbDataAdapter adtr = new OleDbDataAdapter();
+public DataSet dtst = new DataSet();
+ 
+public void combo()
+{
+bag.Open();
+kmt.Connection = bag;
+kmt.CommandText = "Select * from bos";
+OleDbDataReader oku;
+oku = kmt.ExecuteReader();
+while (oku.Read())
+{
+comboBox1.Items.Add(oku[0].ToString());
+}
+bag.Close();
+oku.Dispose();
+comboBox1.Sorted = true;
+}
+public void combo2()
+{
+bag.Open();
+kmt.Connection = bag;
+kmt.CommandText = "Select * from dolu";
+OleDbDataReader oku;
+oku = kmt.ExecuteReader();
+while (oku.Read())
+{
+frm3.comboBox1.Items.Add(oku[0].ToString());
+}
+bag.Close();
+oku.Dispose();
+frm3.comboBox1.Sorted = true;
+ 
+}
+public void listele()
+{
+bag.Open();
+OleDbDataAdapter adtr = new OleDbDataAdapter("select * From musbilg", bag);
+adtr.Fill(dtst, "musbilg");
+frm3.dataView1.Table = dtst.Tables[0];
+frm3.dataGrid1.DataSource = frm3.dataView1;
+adtr.Dispose();
+bag.Close();
+ 
+}
+public void sahayaz()
+{
+bag.Open();
+kmt.Connection = bag;
+kmt.CommandText = "Select * from musbilg";
+OleDbDataReader oku;
+oku = kmt.ExecuteReader();
+while (oku.Read())
+{
+switch (oku[8].ToString())
+{
+case "1":
+{
+frm2.button3.Text = oku[4].ToString();
+frm2.button3.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "2":
+{
+frm2.button4.Text = oku[4].ToString();
+frm2.button4.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "3":
+{
+frm2.button5.Text = oku[4].ToString();
+frm2.button5.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "4":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+ 
+case "5":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+ 
+case "6":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "7":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "8":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "9":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "10":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "11":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "12":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "13":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "14":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "15":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "16":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "17":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "18":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "19":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "20":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "21":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "22":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "23":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "24":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "25":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "26":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "27":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "28":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+ 
+case "29":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "30":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "31":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "32":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "33":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "34":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "35":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "36":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "37":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "38":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "39":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "40":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "41":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "42":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "43":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "44":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "45":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "46":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "47":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "48":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "49":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "50":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "51":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "52":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "53":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "54":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "55":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "56":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "57":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "58":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "59":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+case "60":
+{
+frm2.button6.Text = oku[4].ToString();
+frm2.button6.BackColor = System.Drawing.Color.Green;
+break;
+}
+ 
+}
+}
+bag.Close();
+oku.Dispose();
+ 
+}
+public void sahasil()
+{
+ 
+switch (comboBox8.Text)
+{
+case "1":
+{
+frm2.button3.Text = "1";
+frm2.button3.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "2":
+{
+frm2.button4.Text = "2";
+frm2.button4.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "3":
+{
+frm2.button5.Text = "3";
+frm2.button5.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "4":
+{
+frm2.button6.Text = "4";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+ 
+case "5":
+{
+frm2.button6.Text = "5";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "6":
+{
+frm2.button6.Text = "6";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "7":
+{
+frm2.button6.Text = "7";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "8":
+{
+frm2.button6.Text = "8";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "9":
+{
+frm2.button6.Text = "9";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+ 
+case "10":
+{
+frm2.button6.Text = "10";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "11":
+{
+frm2.button6.Text = "11";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "12":
+{
+frm2.button6.Text = "12";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "13":
+{
+frm2.button6.Text = "13";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "14":
+{
+frm2.button6.Text = "14";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "15":
+{
+frm2.button6.Text = "15";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "16":
+{
+frm2.button6.Text = "16";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "17":
+{
+frm2.button6.Text = "17";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "18":
+{
+frm2.button6.Text = "18";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "19":
+{
+frm2.button6.Text = "19";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "20":
+{
+frm2.button6.Text = "20";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "21":
+{
+frm2.button6.Text = "21";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "22":
+{
+frm2.button6.Text = "22";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "23":
+{
+frm2.button6.Text = "23";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "24":
+{
+frm2.button6.Text = "24";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "25":
+{
+frm2.button6.Text = "25";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+ 
+}
+case "26":
+{
+frm2.button6.Text = "26";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "27":
+{
+frm2.button6.Text = "27";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "28":
+{
+frm2.button6.Text = "28";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "29":
+{
+frm2.button6.Text = "29";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "30":
+{
+frm2.button6.Text = "30";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "31":
+{
+frm2.button6.Text = "31";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "32":
+{
+frm2.button6.Text = "32";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "33":
+{
+frm2.button6.Text = "33";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "34":
+{
+frm2.button6.Text = "34";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "35":
+{
+frm2.button6.Text = "35";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "36":
+{
+frm2.button6.Text = "36";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "37":
+{
+frm2.button6.Text = "37";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "38":
+{
+frm2.button6.Text = "38";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "39":
+{
+frm2.button6.Text = "39";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "40":
+{
+frm2.button6.Text = "40";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "41":
+{
+frm2.button6.Text = "41";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "42":
+{
+frm2.button6.Text = "42";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "43":
+{
+frm2.button6.Text = "43";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "44":
+{
+frm2.button6.Text = "44";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "45":
+{
+frm2.button6.Text = "45";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "46":
+{
+frm2.button6.Text = "46";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "47":
+{
+frm2.button6.Text = "47";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "48":
+{
+frm2.button6.Text = "48";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "49":
+{
+frm2.button6.Text = "49";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "50":
+{
+frm2.button6.Text = "50";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "51":
+{
+frm2.button6.Text = "51";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "52":
+{
+frm2.button6.Text = "52";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "53":
+{
+frm2.button6.Text = "53";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "54":
+{
+frm2.button6.Text = "54";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "55":
+{
+frm2.button6.Text = "55";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "56":
+{
+frm2.button6.Text = "56";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "57":
+{
+frm2.button6.Text = "57";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+ 
+case "58":
+{
+frm2.button6.Text = "58";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "59":
+{
+frm2.button6.Text = "59";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+case "60":
+{
+frm2.button6.Text = "60";
+frm2.button6.BackColor = System.Drawing.Color.Red;
+break;
+}
+}
+}
+ 
+private void Form1_Load(object sender, EventArgs e)
+{
+combo();
+}
+ 
+private void button2_Click(object sender, EventArgs e)
+{
+Close();
+}
+ 
+private void button1_Click_1(object sender, EventArgs e)
+{
+if (textBox1.Text != "" &amp;amp;&amp;amp; textBox5.Text != "" &amp;amp;&amp;amp; comboBox8.Text != "")
+{
+bag.Open();
+kmt.Connection = bag;
+kmt.CommandText = "INSERT INTO musbilg(TcKimlik,Ad,Soyad,CepTel,Saat,Sehir,Koltuk,Nereden,Nereye) VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','" + comboBox8.Text + "','" + comboBox1.Text + "','" + comboBox2.Text + "') ";
+kmt.ExecuteNonQuery();
+kmt.CommandText = "INSERT INTO dolu(dolukoltuk) VALUES ('" + comboBox8.Text + "') ";
+kmt.ExecuteNonQuery();
+kmt.CommandText = "DELETE from bos WHERE boskoltuk='" + comboBox8.Text + "'";
+kmt.ExecuteNonQuery();
+kmt.Dispose();
+bag.Close();
+comboBox1.Items.Clear();
+ 
+textBox1.Clear(); textBox2.Clear(); textBox3.Clear(); textBox4.Clear();
+textBox5.Clear(); textBox6.Clear();
+comboBox8.Text = "";
+combo();
+ 
+MessageBox.Show("Kayıt işlemi tamamlandı ! ");
+}
+else
+{
+MessageBox.Show("Boş alanları doldurunuz !!!");
+}
+}
+ 
+private void button4_Click_1(object sender, EventArgs e)
+{
+frm2.Show();
+this.Hide();
+}
+ 
+private void button3_Click(object sender, EventArgs e)
+{
+frm3.Show();
+this.Hide();
+}
+}
+}
